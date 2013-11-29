@@ -1,0 +1,71 @@
+<h1>Generador de archivos</h1>
+<%= form_for :archivo, url: archivos_path do |f| %>
+<p>
+	<%= f.label :nombre %></br>
+	<%= f.text_field  :nombre %>
+</p>
+<p>
+	<%= f.label :num_lados %></br>
+	<%= f.text_field  :num_lados %>
+</p>
+<p>
+	<%= f.label :size_lados %></br>
+	<%= f.text_field  :size_lados %>
+</p>
+<hr/>
+<p>
+	<%= f.label :color_r %></br>
+	<%= f.text_field  :color_r %>
+</p>
+<p>
+	<%= f.label :color_g %></br>
+	<%= f.text_field  :color_g %>
+</p>
+<p>
+	<%= f.label :color_b %></br>
+	<%= f.text_field  :color_b %>
+</p>
+<hr/>
+<p>
+	<%= f.label :tecla_tx %></br>
+	<%= f.text_field  :tecla_tx %>
+</p>
+<p>
+	<%= f.label :tecla_ty %></br>
+	<%= f.text_field  :tecla_ty %>
+</p>
+<p>
+	<%= f.label :tecla_tz %></br>
+	<%= f.text_field  :tecla_tz %>
+</p>
+
+
+<p>
+	<%= f.label :tecla_sx %></br>
+	<%= f.text_field  :tecla_sx %>
+</p>
+<p>
+	<%= f.label :tecla_sy %></br>
+	<%= f.text_field  :tecla_sy %>
+</p>
+<p>
+	<%= f.label :tecla_sz %></br>
+	<%= f.text_field  :tecla_sz %>
+</p>
+
+<p>
+	<%= f.label :tecla_rx %></br>
+	<%= f.text_field  :tecla_rx %>
+</p>
+<p>
+	<%= f.label :tecla_ry %></br>
+	<%= f.text_field  :tecla_ry %>
+</p>
+<p>
+	<%= f.label :tecla_rz %></br>
+	<%= f.text_field  :tecla_rz %>
+</p>
+<p>
+	<%= f.submit 'Generar Archivo'%>
+</p>
+<% end %>

@@ -1,0 +1,19 @@
+<h1>Archivos Generados</h1>
+<table>
+	<thead>
+		<th>
+			<td>Nombre</td>
+			<td></td>
+		</th>
+	</thead>
+	<tbody>
+	<% @archivos.each do |archivo| %>
+		<tr>
+			<td>archivo.nombre</td>
+			<td></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<%= link_to 'Nuevo archivo', archivos_new_path %>
