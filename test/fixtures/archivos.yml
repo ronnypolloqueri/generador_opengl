@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nombre: MyString
+  color_r: 
+  color_g: 
+  color_b: 
+  num_lados: 
+  size_lados: 
+  tecla_tx: MyString
+  tecla_ty: MyString
+  tecla_tz: MyString
+  tecla_sx: MyString
+  tecla_sy: MyString
+  tecla_sz: MyString
+  tecla_rx: MyString
+  tecla_ry: MyString
+  tecla_rz: MyString
+
+two:
+  nombre: MyString
+  color_r: 
+  color_g: 
+  color_b: 
+  num_lados: 
+  size_lados: 
+  tecla_tx: MyString
+  tecla_ty: MyString
+  tecla_tz: MyString
+  tecla_sx: MyString
+  tecla_sy: MyString
+  tecla_sz: MyString
+  tecla_rx: MyString
+  tecla_ry: MyString
+  tecla_rz: MyString
