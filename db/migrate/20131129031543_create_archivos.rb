@@ -16,7 +16,7 @@ class CreateArchivos < ActiveRecord::Migration
 
       t.string :tecla_sx, limit: 1, default: 'g'
       t.string :tecla_sy, limit: 1, default: 'h'
-      t.string :tecla_sz, limit: 1, default: 'b'
+      t.string :tecla_sz, limit: 1, default: 'j'
 
       t.string :tecla_rx, limit: 1, default: 'b'
       t.string :tecla_ry, limit: 1, default: 'n'

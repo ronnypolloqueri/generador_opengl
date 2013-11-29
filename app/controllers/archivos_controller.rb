@@ -12,15 +12,16 @@ class ArchivosController < ApplicationController
   	if @archivo.save
   		redirect_to @archivo
   	else
-  		render 'new'
+  		render @archivo.errors.inspect
   	end
   end
 
   def show
+  	@archivo = Archivo.find(params[:id])
   end
 
   private
   def archivo_params
-     params.require(:archivo).permit(:all)
+     params.require(:archivo).permit(:nombre, :num_lados, :size_lados, :color_r, :color_g, :color_b)
   end
 end

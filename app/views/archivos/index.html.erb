@@ -9,7 +9,7 @@
 	<tbody>
 	<% @archivos.each do |archivo| %>
 		<tr>
-			<td>archivo.nombre</td>
+			<td><%=link_to archivo.nombre, archivo %></td>
 			<td></td>
 		</tr>
 	<% end %>

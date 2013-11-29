@@ -1,105 +1,96 @@
-#include <gl/glut.h>
-#include <math.h>
-#include <stdlib.h>
-#define SEN_T 0.5f
-#define SEN_S 0.2f
-#define SEN_A 2.0f
-
-GLfloat rotar = 0.0;
-
-static float vectorX[N_LADOS];
-static float vectorY[N_LADOS];
-static float RADIO;
-
-static float tx=0.0f, ty=0.0f, tz=0.0f;
-static float sx=1.0f, sy=1.0f, sz=1.0f;
-static float ax=0.0f, ay=0.0f, az=0.0f;
-
-void init(void);
-void display(void);
-void reshape(int, int);
-
-void init(void){
-	glClearColor(0.0,0.0,0.0,0.0);
-	glShadeModel(GL_FLAT);
-}
-
-void dibujaFigura3D(){
-    glBegin(GL_LINES);
-#Completar
-    glEnd();
-}
-
-void display(void){
-	glClear(GL_COLOR_BUFFER_BIT);
-	glPushMatrix();
-	glTranslatef(tx,ty,tz);
-	glRotatef(ax,1, 0, 0);
-	glRotatef(ay,0, 1, 0);
-	glRotatef(az,0, 0, 1);
-	glScalef(sx,sy,sz);
-#color
-	dibujaFigura3D();
-	glPopMatrix();
-	glFlush();
-}
-
-void reshape(GLsizei w, GLsizei h){
-	glViewport(0,0,w,h);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(-10,10,-10,10,-10,10);
-    //gluPerspective(60, 1, 0 , 10);
-	gluLookAt(0,0,-7, 0,0,0, 0,1,0);
-	glMatrixMode(GL_MODELVIEW);
-}
-
-void keyboard(unsigned char key, int x, int y){
-     switch(key){
-     	// controles para translacion
-     	case 't': tx += SEN_T;break;
-     	case 'T': tx -= SEN_T;break;
-
-     	case 'y': ty += SEN_T;break;
-     	case 'Y': ty -= SEN_T;break;
-
-     	case 'u': tz += SEN_T;break;
-     	case 'U': tz -= SEN_T;break;
-
-     	// controles para escalado
-     	case 'g': sx += SEN_S;break;
-     	case 'G': sx -= SEN_S;break;
-
-     	case 'h': sy += SEN_S;break;
-     	case 'H': sy -= SEN_S;break;
-
-     	case 'j': sz += SEN_S;break;
-     	case 'J': sz -= SEN_S;break;
-
-     	// controles para rotacion
-     	case 'b': ax += SEN_A;break;
-     	case 'B': ax -= SEN_A;break;
-
-     	case 'n': ay += SEN_A;break;
-     	case 'N': ay -= SEN_A;break;
-
-     	case 'm': az += SEN_A;break;
-     	case 'M': az -= SEN_A;break;
-     }
-     display();
-}
-
-int main(int argc, char** argv){
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(500,500);
-	glutInitWindowPosition(100,100);
-	glutCreateWindow("Primer Trabajo");
-	init();
-	glutDisplayFunc(display);
-	glutReshapeFunc(reshape);
-	glutKeyboardFunc(keyboard);
-	glutMainLoop();
-	return 0;
-}
+<%= @archivo.include_glut %><br/>
+<br/>
+static float tx=0.0f, ty=0.0f, tz=0.0f;<br/>
+static float sx=1.0f, sy=1.0f, sz=1.0f;<br/>
+static float ax=0.0f, ay=0.0f, az=0.0f;<br/>
+<br/>
+void init(void);<br/>
+void display(void);<br/>
+void reshape(int, int);<br/>
+<br/>
+void init(void){<br/>
+	glClearColor(0.0,0.0,0.0,0.0);<br/>
+	glShadeModel(GL_FLAT);<br/>
+}<br/>
+<br/>
+void dibujaFigura3D(){<br/>
+    glBegin(GL_LINES);<br/>
+<% @archivo.print_vectores.each do |line| %>
+<%= line%><br/>
+<% end %>
+    glEnd();<br/>
+}<br/>
+<br/>
+void display(void){<br/>
+	glClear(GL_COLOR_BUFFER_BIT);<br/>
+	glPushMatrix();<br/>
+	glTranslatef(tx,ty,tz);<br/>
+	glRotatef(ax,1, 0, 0);<br/>
+	glRotatef(ay,0, 1, 0);<br/>
+	glRotatef(az,0, 0, 1);<br/>
+	glScalef(sx,sy,sz);<br/>
+<%= @archivo.print_color %><br/>
+	dibujaFigura3D();<br/>
+	glPopMatrix();<br/>
+	glFlush();<br/>
+}<br/>
+<br/>
+void reshape(GLsizei w, GLsizei h){<br/>
+	glViewport(0,0,w,h);<br/>
+	glMatrixMode(GL_PROJECTION);<br/>
+	glLoadIdentity();<br/>
+	glOrtho(-15,15,-15,15,-15,15);<br/>
+    //gluPerspective(60, 1, 0 , 10);<br/>
+	gluLookAt(0,0,-7, 0,0,0, 0,1,0);<br/>
+	glMatrixMode(GL_MODELVIEW);<br/>
+}<br/>
+<br/>
+void keyboard(unsigned char key, int x, int y){<br/>
+     switch(key){<br/>
+     	// controles para translacion<br/>
+     	case '<%= @archivo.tecla_tx %>': tx += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_tx.upcase %>': tx -= 0.3f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_ty %>': ty += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_ty.upcase %>': ty -= 0.3f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_tz %>': tz += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_tz.upcase %>': tz -= 0.3f;break;<br/>
+<br/>
+     	// controles para escalado<br/>
+     	case '<%= @archivo.tecla_sx %>': sx += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_sx.upcase %>': sx -= 0.3f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_sy %>': sy += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_sy.upcase %>': sy -= 0.3f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_sz %>': sz += 0.3f;break;<br/>
+     	case '<%= @archivo.tecla_sz.upcase %>': sz -= 0.3f;break;<br/>
+<br/>
+     	// controles para rotacion<br/>
+     	case '<%= @archivo.tecla_rx %>': ax += 2.0f;break;<br/>
+     	case '<%= @archivo.tecla_rx.upcase %>': ax -= 2.0f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_ry %>': ay += 2.0f;break;<br/>
+     	case '<%= @archivo.tecla_ry.upcase %>': ay -= 2.0f;break;<br/>
+<br/>
+     	case '<%= @archivo.tecla_rz %>': az += 2.0f;break;<br/>
+     	case '<%= @archivo.tecla_rz.upcase %>': az -= 2.0f;break;<br/>
+     }<br/>
+     display();<br/>
+}<br/>
+<br/>
+int main(int argc, char** argv){<br/>
+	glutInit(&argc, argv);<br/>
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);<br/>
+	glutInitWindowSize(500,500);<br/>
+	glutInitWindowPosition(100,100);<br/>
+	glutCreateWindow("Primer Trabajo");<br/>
+	init();<br/>
+	glutDisplayFunc(display);<br/>
+	glutReshapeFunc(reshape);<br/>
+	glutKeyboardFunc(keyboard);<br/>
+	glutMainLoop();<br/>
+	return 0;<br/>
+}<br/>
 
