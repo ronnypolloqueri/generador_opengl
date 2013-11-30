@@ -17,14 +17,14 @@
 </div>
 
 <div class="form-group">
-	<%= f.label :num_lados, class: "col-sm-2 control-label" %>
+	<%= f.label "Numero de lados", class: "col-sm-2 control-label" %>
 	<div class="col-sm-8">
 		<%= f.text_field  :num_lados , class: "form-control"%>
 	</div>
 </div>
 
 <div class="form-group">
-	<%= f.label :size_lados, class: "col-sm-2 control-label" %>
+	<%= f.label "Longitud del lado", class: "col-sm-2 control-label" %>
 	<div class="col-sm-8">
 		<%= f.text_field  :size_lados , class: "form-control"%>
 	</div>
@@ -57,55 +57,98 @@
 			<%= f.text_field  :color_b, id: "info-b", class: "form-control" %>
 			</div>
 		</div>
+	</div>
+<hr/>
 
+	<!-- Teclas de translacion -->
+	<div class="row">
+		<div class="col-md-offset-1">
+			<h4>Teclas control de Traslación</h4>
+		</div>
+	</div>
 
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2">
+			<div class="form-group">
+			<%= f.label "X", class: "col-xs-2" %>
+			<%= f.text_field  :tecla_tx, id: "info-r", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Y", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_ty, id: "info-g", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Z", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_tz, id: "info-b", class: "form-control" %>
+			</div>
+		</div>
+	</div>
 
+	<div class="row">
+		<div class="col-md-offset-1">
+			<h4>Teclas de control de Escalado</h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2">
+			<div class="form-group">
+			<%= f.label "X", class: "col-xs-2" %>
+			<%= f.text_field  :tecla_sx, id: "info-r", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Y", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_sy, id: "info-g", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Z", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_sz, id: "info-b", class: "form-control" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-offset-1">
+			<h4>Teclas de control de Rotación</h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2">
+			<div class="form-group">
+			<%= f.label "X", class: "col-xs-2" %>
+			<%= f.text_field  :tecla_rx, id: "info-r", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Y", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_ry, id: "info-g", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "Z", class: "col-xs-2" %></br>
+			<%= f.text_field  :tecla_rz, id: "info-b", class: "form-control" %>
+			</div>
+		</div>
 	</div>
 </div>
-
 <hr/>
-<p>
-	<%= f.label :tecla_tx %></br>
-	<%= f.text_field  :tecla_tx %>
-</p>
-<p>
-	<%= f.label :tecla_ty %></br>
-	<%= f.text_field  :tecla_ty %>
-</p>
-<p>
-	<%= f.label :tecla_tz %></br>
-	<%= f.text_field  :tecla_tz %>
-</p>
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      	<%= f.submit '>>> Generar Archivo de OpenGL <<< XD', class: "btn btn-primary btn-lg"%>
+    </div>
+</div>
 
-
-<p>
-	<%= f.label :tecla_sx %></br>
-	<%= f.text_field  :tecla_sx %>
-</p>
-<p>
-	<%= f.label :tecla_sy %></br>
-	<%= f.text_field  :tecla_sy %>
-</p>
-<p>
-	<%= f.label :tecla_sz %></br>
-	<%= f.text_field  :tecla_sz %>
-</p>
-
-<p>
-	<%= f.label :tecla_rx %></br>
-	<%= f.text_field  :tecla_rx %>
-</p>
-<p>
-	<%= f.label :tecla_ry %></br>
-	<%= f.text_field  :tecla_ry %>
-</p>
-<p>
-	<%= f.label :tecla_rz %></br>
-	<%= f.text_field  :tecla_rz %>
-</p>
-<p>
-	<%= f.submit 'Generar Archivo'%>
-</p>
 <% end %>
 
 <script type="text/javascript">
