@@ -11,7 +11,7 @@ class Archivo < ActiveRecord::Base
 		'#include <gl/glut.h>'
 	end
 	def print_color
-		"glColor3f(#{(color_r/255.0).round(2)},#{(color_g/255.0).round(2)},#{(color_b/255.0).round(2)});"
+		"glColor3f(#{color_r.round(2)},#{color_g.round(2)},#{color_b.round(2)});"
 	end
 
 

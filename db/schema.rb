@@ -15,9 +15,9 @@ ActiveRecord::Schema.define(version: 20131129031543) do
 
   create_table "archivos", force: true do |t|
     t.string   "nombre"
-    t.integer  "color_r"
-    t.integer  "color_g"
-    t.integer  "color_b"
+    t.decimal  "color_r"
+    t.decimal  "color_g"
+    t.decimal  "color_b"
     t.integer  "num_lados"
     t.integer  "size_lados"
     t.string   "tecla_tx",   limit: 1, default: "r"

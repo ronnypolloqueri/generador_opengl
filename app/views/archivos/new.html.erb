@@ -1,30 +1,68 @@
+<script type="text/javascript">
+	function updateInfo(color) {
+		document.getElementById('info-r').value = color.rgb[0];
+		document.getElementById('info-g').value = color.rgb[1];
+		document.getElementById('info-b').value = color.rgb[2];
+	}
+</script>
+
 <h1>Generador de archivos</h1>
-<%= form_for :archivo, url: archivos_path do |f| %>
-<p>
-	<%= f.label :nombre %></br>
-	<%= f.text_field  :nombre %>
-</p>
-<p>
-	<%= f.label :num_lados %></br>
-	<%= f.text_field  :num_lados %>
-</p>
-<p>
-	<%= f.label :size_lados %></br>
-	<%= f.text_field  :size_lados %>
-</p>
+
+<%= form_for :archivo, remote: true, url: archivos_path ,html: {class: "form-horizontal", role: "form"} do |f| %>
+<div class="form-group">
+	<%= f.label :nombre, class: "col-sm-2 control-label" %>
+	<div class="col-sm-8">
+		<%= f.text_field  :nombre , class: "form-control"%>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :num_lados, class: "col-sm-2 control-label" %>
+	<div class="col-sm-8">
+		<%= f.text_field  :num_lados , class: "form-control"%>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :size_lados, class: "col-sm-2 control-label" %>
+	<div class="col-sm-8">
+		<%= f.text_field  :size_lados , class: "form-control"%>
+	</div>
+</div>
+
 <hr/>
-<p>
-	<%= f.label :color_r %></br>
-	<%= f.text_field  :color_r %>
-</p>
-<p>
-	<%= f.label :color_g %></br>
-	<%= f.text_field  :color_g %>
-</p>
-<p>
-	<%= f.label :color_b %></br>
-	<%= f.text_field  :color_b %>
-</p>
+	<div class="form-group">
+		<label for="selector" class="col-sm-2 control-label">Color</label>
+		<div class="col-sm-8">
+			<input class="color {onImmediateChange:'updateInfo(this);'} form-control" value="66ff00"  class="form-control" id="selector">
+		</div>
+	</div>
+<div class="form-inline" role="form">
+	<div class="row">
+		<div class="col-md-2 col-md-offset-2">
+			<div class="form-group">
+			<%= f.label "R", class: "col-xs-2" %></br>
+			<%= f.text_field  :color_r, id: "info-r", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "G", class: "col-xs-2" %></br>
+			<%= f.text_field  :color_g, id: "info-g", class: "form-control" %>
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<div class="form-group">
+			<%= f.label "B", class: "col-xs-2" %></br>
+			<%= f.text_field  :color_b, id: "info-b", class: "form-control" %>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
+
 <hr/>
 <p>
 	<%= f.label :tecla_tx %></br>
@@ -69,3 +107,11 @@
 	<%= f.submit 'Generar Archivo'%>
 </p>
 <% end %>
+
+<script type="text/javascript">
+	function updateInfo(color) {
+		document.getElementById('info-r').value = color.rgb[0];
+		document.getElementById('info-g').value = color.rgb[1];
+		document.getElementById('info-b').value = color.rgb[2];
+	}
+</script>
