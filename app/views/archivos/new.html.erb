@@ -8,7 +8,7 @@
 
 <h1>Generador de archivos</h1>
 
-<%= form_for :archivo, remote: true, url: archivos_path ,html: {class: "form-horizontal", role: "form"} do |f| %>
+<%= form_for :archivo, url: archivos_path,  html: {class: "form-horizontal", role: "form"} do |f| %>
 <div class="form-group">
 	<%= f.label :nombre, class: "col-sm-2 control-label" %>
 	<div class="col-sm-8">

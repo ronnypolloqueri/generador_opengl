@@ -10,7 +10,7 @@ class ArchivosController < ApplicationController
   def create
   	@archivo = Archivo.new(archivo_params)
   	if @archivo.save
-  		render archivo_path(@archivo)
+  		redirect_to @archivo
   	else
   		render @archivo.errors.inspect
   	end
