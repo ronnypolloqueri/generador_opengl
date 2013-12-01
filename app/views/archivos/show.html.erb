@@ -70,7 +70,7 @@ void reshape(GLsizei w, GLsizei h){
 	glViewport(0,0,w,h);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(-15,15,-15,15,-15,15);
+	glOrtho(-15,15,-15,15,-100,100);
     //gluPerspective(60, 1, 0 , 10);
 	gluLookAt(0,0,-7, 0,0,0, 0,1,0);
 	glMatrixMode(GL_MODELVIEW);
