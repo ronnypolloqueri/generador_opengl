@@ -6,9 +6,10 @@
 	}
 </script>
 
-<h1>Generador de archivos</h1>
-
+<h1 class="text-primary">Generador de archivos</h1>
+<hr/>
 <%= form_for :archivo, url: archivos_path,  html: {class: "form-horizontal", role: "form"} do |f| %>
+<fieldset>
 <div class="form-group">
 	<%= f.label :nombre, class: "col-sm-2 control-label" %>
 	<div class="col-sm-8">
@@ -42,7 +43,7 @@
 		<div class="col-md-2 col-md-offset-2">
 			<div class="form-group">
 			<%= f.label "R", class: "col-xs-2" %></br>
-			<%= f.text_field  :color_r, id: "info-r", class: "form-control" %>
+			<%= f.text_field :color_r, id: "info-r", class: "form-control disabledInput" %>
 			</div>
 		</div>
 		<div class="col-md-2 col-md-offset-1">

@@ -1,4 +1,6 @@
 class ArchivosController < ApplicationController
+  http_basic_authenticate_with name: "ronny", password: "seelmejor", except: [:show]
+
   def index
   	@archivos = Archivo.all
   end

@@ -32,21 +32,21 @@ class Archivo < ActiveRecord::Base
 			str += sprintf("\tglVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[i], vector_y[i])
 			str += sprintf("\tglVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[i+1], vector_y[i+1])
 		end
-		str += sprintf("glVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[num_lados-1], vector_y[num_lados-1])
-		str += sprintf("glVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[0], vector_y[0])
+		str += sprintf("\tglVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[num_lados-1], vector_y[num_lados-1])
+		str += sprintf("\tglVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[0], vector_y[0])
 
 		str += sprintf("%s","   //Cara Posterior\n")
 		(0...num_lados-1).each do |i|
-			str += sprintf("glVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i], vector_y[i])
-			str += sprintf("glVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i+1], vector_y[i+1])
+			str += sprintf("\tglVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i], vector_y[i])
+			str += sprintf("\tglVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i+1], vector_y[i+1])
 		end
-		str += sprintf("glVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[num_lados-1], vector_y[num_lados-1])
-		str += sprintf("glVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[0], vector_y[0])
+		str += sprintf("\tglVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[num_lados-1], vector_y[num_lados-1])
+		str += sprintf("\tglVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[0], vector_y[0])
 
 		str += sprintf("%s","   //Union de vertices entre las 2 caras\n")
 		(0...num_lados).each do |i|
-			str += sprintf("glVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i], vector_y[i])
-			str += sprintf("glVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[i], vector_y[i])
+			str += sprintf("\tglVertex3f(%5.2f, %5.2f, -#{size_lado/2.0});\n", vector_x[i], vector_y[i])
+			str += sprintf("\tglVertex3f(%5.2f, %5.2f,  #{size_lado/2.0});\n", vector_x[i], vector_y[i])
 		end
 		return str
 	end

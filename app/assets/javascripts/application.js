@@ -14,3 +14,4 @@
 //= require jquery_ujs
 //= require jscolor
 //= require bootstrap
+//= require zeroclipboard
