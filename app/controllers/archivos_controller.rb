@@ -30,7 +30,7 @@ class ArchivosController < ApplicationController
     end
   end
 
-  def ejercicio2_v1
+  def tarea2_v1
   end
 
   private

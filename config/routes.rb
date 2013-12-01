@@ -4,7 +4,7 @@ GeneradorOpengl::Application.routes.draw do
   get "archivos/:id" => 'archivos#show', as: 'archivo'
   post "archivos" => 'archivos#create'
 
-  get "ejercicio2_v1" => 'archivos#ejercicio2_v1', as: 'ejercicio2'
+  get "tarea2_v1" => 'archivos#tarea2_v1', as: 'tarea2'
   # resources :archivos
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
