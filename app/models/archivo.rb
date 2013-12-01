@@ -1,11 +1,13 @@
 class Archivo < ActiveRecord::Base
-	validates :nombre, :num_lados, :size_lados, presence: true
-	validates :tecla_tx,:tecla_ty,:tecla_tz,
-			  :tecla_sx,:tecla_sy,:tecla_sz,
-			  :tecla_rx,:tecla_ry,:tecla_rz, length: { maximum: 1 }
+	validates_presence_of :nombre, :num_lados, :size_lados, message: "no puede estar vacio"
 
+	validates :num_lados, :size_lados, numericality: { only_integer: true,  message: "no es un entero"}
+
+	validates :tecla_tx, :tecla_ty, :tecla_tz, :tecla_sx,:tecla_sy,:tecla_sz,  :tecla_rx,:tecla_ry,:tecla_rz, length: { is: 1 }
+	validates_presence_of :color_r, :color_g, :color_b, message: "Escoge un color"
 
 	PI = 3.1416
+
 
 	def include_glut
 		'#include <gl/glut.h>'
@@ -53,7 +55,8 @@ class Archivo < ActiveRecord::Base
 
 
 	def get_radio(size_lado, n_lados)
-		size_lado*Math.sin(2*PI/n_lados)
+		# size_lado*Math.sin(2*PI/n_lados)
+		size_lado/(2*Math.sin((2*PI)/(n_lados*2)))
 	end
 
 	def redondea(numero)

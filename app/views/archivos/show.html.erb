@@ -20,7 +20,7 @@ $(document).ready(function(){
   </div>
   <div class="col-md-2 col-md-offset-6 text-right">
 	  <button class='my_clip_button btn btn-primary' data-clipboard-target='fe_text' data-clipboard-text='Default clipboard text from attribute' id='d_clip_button'>
-	    Copia
+	    Copia el código
 	  </button>
   </div>
 </div>
@@ -51,13 +51,17 @@ void dibujaFigura3D(){
 void display(void){
 	glClear(GL_COLOR_BUFFER_BIT);
 	glPushMatrix();
-	glTranslatef(tx,ty,tz);
-	glRotatef(ax,1, 0, 0);
-	glRotatef(ay,0, 1, 0);
-	glRotatef(az,0, 0, 1);
-	glScalef(sx,sy,sz);
-<%= @archivo.print_color %>
-	dibujaFigura3D();
+		// traslacion
+		glTranslatef(tx,ty,tz);
+		// rotacion en cada eje
+		glRotatef(ax,1, 0, 0);
+		glRotatef(ay,0, 1, 0);
+		glRotatef(az,0, 0, 1);
+		// escalado
+		glScalef(sx,sy,sz);
+		// Color
+		<%= @archivo.print_color %>
+		dibujaFigura3D();
 	glPopMatrix();
 	glFlush();
 }
@@ -112,7 +116,7 @@ int main(int argc, char** argv){
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
 	glutInitWindowSize(500,500);
 	glutInitWindowPosition(100,100);
-	glutCreateWindow("#{@archivo.nombre}");
+	glutCreateWindow("<%= @archivo.nombre %>");
 	init();
 	glutDisplayFunc(display);
 	glutReshapeFunc(reshape);

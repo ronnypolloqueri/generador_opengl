@@ -8,8 +8,33 @@
 
 <h1 class="text-primary">Generador de archivos</h1>
 <hr/>
+<div class="row">
+<div class="alert alert-info col-md-10">
+<p>
+	Escoge el nombre (lo que aparecerá en la barra de título), número de lados, la longitud de una arista, el color , y las teclas de control para cada transformación (rotación, escalado y traslación). Y tu poliedro estará listo.
+</p>
+<p>
+	Todo es opcional menos el color! Que lo disfruten.
+</p>
+</div>
+</div>
+<hr/>
+
 <%= form_for :archivo, url: archivos_path,  html: {class: "form-horizontal", role: "form"} do |f| %>
-<fieldset>
+<% if @archivo.errors.any? %>
+<div class="row">
+<div class="alert alert-danger col-md-10">
+  <div id="error_explanation">
+    <h2><%= pluralize(@archivo.errors.count, "error", "errores") %> hace que este formulario no se pueda enviar</h2>
+    <ul>
+    <% @archivo.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>
+</div>
+<% end %>
 <div class="form-group">
 	<%= f.label :nombre, class: "col-sm-2 control-label" %>
 	<div class="col-sm-8">
